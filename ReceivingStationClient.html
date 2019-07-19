@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Receiving station</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ReceivingStation.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="ReceivingStation.js"></script>
+  </head>
+
+  <body ng-app="receivingstation" ng-controller="receivingcontroller">
+
+
+<section>
+     <h1 class="table-title">Team 2 - Receiving Station</h1>
+     <div class="col-xs-6">
+         <h3 class="table-title">Bot-1</h3>
+   <div>
+    <table>
+      <thead>
+        <tr>
+          <th style="font-size:20px">OrderID</th>
+          <th style="font-size:20px">Name</th>
+          <th style="font-size:20px">Quantity</th>
+        </tr>
+    </thead>
+  </table>
+</div>
+<div class="tbl-content">
+<table class="table-fill">
+      <tbody class="table-hover">
+        <tr ng-repeat="order in pending.Orders | groupBy:'orderID'">
+          <td>
+
+            <span class="groupHeader" ng-show="order.group_by_key">{{order.orderID}}</span>
+          </td>
+          <td>
+            <span class="groupValue" ng-if="order.productID == 1" >Red</span>
+            <span class="groupValue" ng-if="order.productID == 2" >Green</span>
+            <span class="groupValue" ng-if="order.productID == 3" >Blue</span>
+            <span class="groupValue" ng-if="order.productID == 4" >Black</span>
+            <span class="groupValue" ng-if="order.productID == 5" >Yellow</span>
+            <span class="groupValue" ng-if="order.productID == 6" >White</span>
+          </td>
+
+          <td>
+              <span class="groupValue">{{order.qtyOrdered}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="col-xs-6">
+<h3 class="table-title">Bot-2</h3>
+  <div>
+   <table>
+     <thead>
+       <tr>
+         <th style="font-weight:100">OrderID</th>
+         <th style="font-weight:100">Name</th>
+         <th style="font-weight:100">Quantity</th>
+
+       </tr>
+   </thead>
+ </table>
+</div>
+<div class="tbl-content">
+<table class="table-fill">
+     <tbody class="table-hover">
+       <tr ng-repeat="order in loaded.Orders | groupBy:'orderID'">
+         <td>
+           <span class="groupHeader" ng-show="order.group_by_key">{{order.orderID}}</span>
+         </td>
+         <td>
+           <span class="groupValue" ng-if="order.productID == 1" >Red</span>
+           <span class="groupValue" ng-if="order.productID == 2" >Green</span>
+           <span class="groupValue" ng-if="order.productID == 3" >Blue</span>
+           <span class="groupValue" ng-if="order.productID == 4" >Black</span>
+           <span class="groupValue" ng-if="order.productID == 5" >Yellow</span>
+           <span class="groupValue" ng-if="order.productID == 6" >White</span>
+         </td>
+
+         <td>
+             <span class="groupValue">{{order.qtyOrdered}}</span>
+         </td>
+
+       </tr>
+     </tbody>
+   </table>
+ </div>
+</div>
+</>
+
+<div class="centered">
+<button style="margin-top: 1%;"class="large green button" ng-click="botone(); botonedata()">Bot 1</button>
+<button class="large green button" ng-click="bottwo(); bottwodata()">Bot 2</button>
+<button class="large green button" ng-click="maintainenceOn(); startmaintenencedata()">Maintainence On</button>
+<button class="large green button" ng-click="maintainenceOff(); stopmaintenencedata();">Maintainence Off</button>
+</div>
+
+</section>
+  </body>
+</html>

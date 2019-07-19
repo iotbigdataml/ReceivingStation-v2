@@ -1,0 +1,52 @@
+{
+"Name" : "Alfreds Futterkiste",
+"City" : "Berlin",
+"Country" : "Germany",
+"Orders": [
+{
+"orderID":1,
+"name":"Red",
+"quantity":2
+},
+{
+"orderID":1,
+"name":"Blue",
+"quantity":2
+},
+{
+"orderID":1,
+"name":"Black",
+"quantity":2
+},
+{
+"orderID":1,
+"name":"Yellow",
+"quantity":1
+},
+{
+"orderID":2,
+"name":"Yellow",
+"quantity":1
+},
+{
+"orderID":2,
+"name":"Black",
+"quantity":1
+},
+{
+"orderID":3,
+"name":"Yellow",
+"quantity":1
+},
+{
+"orderID":3,
+"name":"Black",
+"quantity":1
+},
+{
+"orderID":3,
+"name":"Pink",
+"quantity":1
+}
+]
+}
