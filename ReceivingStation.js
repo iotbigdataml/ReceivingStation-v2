@@ -1,8 +1,8 @@
 var app = angular.module("receivingstation", []);
 app.controller("receivingcontroller", ['$scope', '$http', function ($scope, $http) {
 
-  $scope.server_url="http://ec2-52-23-195-47.compute-1.amazonaws.com:3000/api";
-  $scope.bot_url="http://ad289656.ngrok.io";
+  $scope.server_url="http://ec2-3-84-43-140.compute-1.amazonaws.com:3000/api";
+  $scope.bot_url="http://e192b53e.ngrok.io";
   
   // Fetch data from url every one second
   setInterval(function () {
@@ -44,7 +44,6 @@ app.controller("receivingcontroller", ['$scope', '$http', function ($scope, $htt
 
   // Function to control bot one
   $scope.botone = function () {
-
     $http({
       method: 'GET',
       url: $scope.bot_url+'/bot1'
@@ -55,7 +54,7 @@ app.controller("receivingcontroller", ['$scope', '$http', function ($scope, $htt
 
     }, function errorCallback(response) {
 
-      alert("Error. Try Again!");
+      console.log("Error bot 1");
 
     });
 
@@ -81,7 +80,6 @@ $scope.startmaintenencedata = function() {
 };
 
 
-
 $scope.stopmaintenencedata = function() {
 
   var parameter = JSON.stringify({ "station": "MAINTENANCE_STOP"});
@@ -98,10 +96,6 @@ $scope.stopmaintenencedata = function() {
     });
 
 };  
-
-
-
-
 
 
 $scope.botonedata = function (){
@@ -121,6 +115,18 @@ $scope.botonedata = function (){
 
 
 };
+
+$scope.botstart = function (){
+  $http.post($scope.server_url+'/loadTrip', JSON.stringify()).then(function (response) {
+
+    
+    
+    }, function (response) {
+    
+    });
+
+
+};
   // Function to control bot two
 
   $scope.bottwo = function () {
@@ -137,7 +143,7 @@ $scope.botonedata = function (){
 
     }, function errorCallback(response) {
 
-      alert("Error. Try Again!");
+      alert("Error place1");
 
     });
 
@@ -146,7 +152,7 @@ $scope.botonedata = function (){
 
 $scope.bottwodata = function (){
 
-  var parameter = JSON.stringify({ "station": "RECV", "bot": "12" });
+  var parameter = JSON.stringify({ "" : "" });
   url = $scope.server_url+'/trips/update/bot/departure'
   $http.post(url, parameter).
     success(function (data, status, headers, config) {
